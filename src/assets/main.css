@@ -1,0 +1,92 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Reset defaults so only DESIGN.md tokens exist as utilities. */
+  --color-*: initial;
+  --color-paper: #f6f3ec;
+  --color-card: #fffdf8;
+  --color-ink: #1c1b19;
+  --color-ink-muted: #6b665c;
+  --color-rule: #d9d4c7;
+  --color-accent: #1f4e79;
+  --color-offer: #1f6f4a;
+  --color-danger: #a1341f;
+
+  --font-*: initial;
+  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-serif: 'IBM Plex Serif', Georgia, serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --text-*: initial;
+  --text-meta: 0.75rem;
+  --text-meta--line-height: 1rem;
+  --text-column: 0.8125rem;
+  --text-column--line-height: 1.25rem;
+  --text-body: 0.875rem;
+  --text-body--line-height: 1.25rem;
+  --text-company: 1rem;
+  --text-company--line-height: 1.5rem;
+  --text-wordmark: 1.125rem;
+  --text-wordmark--line-height: 1.5rem;
+  --text-heading: 1.375rem;
+  --text-heading--line-height: 1.75rem;
+
+  --radius-*: initial;
+  --radius-sm: 4px;
+
+  --shadow-*: initial;
+  --shadow-edge: 4px 4px 0 var(--color-rule);
+  --shadow-drag: 0 6px 16px rgb(28 27 25 / 0.14);
+}
+
+@layer base {
+  body {
+    @apply bg-paper font-sans text-body text-ink;
+  }
+}
+
+@layer components {
+  .page-gutter {
+    @apply px-4 sm:px-6;
+  }
+  .file-tab {
+    @apply relative z-10 -mb-px inline-block rounded-t-sm border border-b-0 border-rule bg-card px-3 py-2;
+  }
+  .wordmark {
+    @apply font-serif text-wordmark font-semibold text-ink;
+  }
+  .btn-primary {
+    @apply h-10 rounded-sm border border-accent bg-accent px-4 font-semibold text-card pointer-coarse:h-11;
+  }
+  .btn-secondary {
+    @apply h-10 rounded-sm border border-rule bg-card px-4 text-ink pointer-coarse:h-11;
+  }
+  .btn-text {
+    @apply h-10 rounded-sm border border-transparent px-2 text-ink pointer-coarse:h-11;
+  }
+  .field-input {
+    @apply h-10 w-full rounded-sm border border-rule bg-card px-3 text-body text-ink pointer-coarse:h-11;
+  }
+  .field-label {
+    @apply font-semibold text-ink;
+  }
+  .field-error {
+    @apply mt-1 text-danger;
+  }
+  .link {
+    @apply rounded-sm text-accent underline decoration-accent underline-offset-2 hover:decoration-ink-muted;
+  }
+  .btn-primary,
+  .btn-secondary,
+  .btn-text,
+  .field-input {
+    @apply hover:border-ink-muted disabled:pointer-events-none disabled:opacity-50;
+  }
+  .btn-primary,
+  .btn-secondary,
+  .btn-text,
+  .field-input,
+  .link {
+    @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent;
+  }
+}
